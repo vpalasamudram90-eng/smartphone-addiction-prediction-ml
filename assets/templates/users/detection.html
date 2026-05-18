@@ -1,0 +1,204 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+
+{% block contents %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smartphone Addiction Analysis Report</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #667eea;
+    text-align: center;
+    font-size: 28px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.result-box {
+    margin: 20px 0 30px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.addicted {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+    color: white;
+}
+
+.not-addicted {
+    background: linear-gradient(135deg, #51cf66, #2f9e44);
+    color: white;
+}
+
+.section {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-left: 5px solid #667eea;
+    border-radius: 8px;
+}
+
+.section h3 {
+    color: #667eea;
+    margin-bottom: 12px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 600;
+    color: #333;
+}
+
+.value {
+    color: #444;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 15px;
+}
+
+.card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card strong {
+    font-size: 20px;
+    display: block;
+    margin-top: 5px;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-back {
+    background-color: #667eea;
+}
+
+.btn-home {
+    background-color: #764ba2;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>📱 Smartphone Addiction Analysis Report</h1>
+<p class="subtitle">Assessment based on smartphone usage statistics</p>
+
+<div class="result-box {% if result == 'Addicted' %}addicted{% else %}not-addicted{% endif %}">
+    {% if result == "Addicted" %}
+        ⚠️ YOU ARE SHOWING SIGNS OF SMARTPHONE ADDICTION
+    {% else %}
+        ✅ HEALTHY SMARTPHONE USAGE PATTERNS DETECTED
+    {% endif %}
+</div>
+
+<!-- BASIC INFO -->
+<div class="section">
+<h3>👤 Basic Information</h3>
+<div class="item">
+    <span class="label">Age</span>
+    <span class="value">{{ age }}</span>
+</div>
+</div>
+
+<!-- USAGE METRICS -->
+<div class="section">
+<h3>📊 Usage Metrics</h3>
+<div class="item"><span class="label">Total Screen Time</span><span class="value">{{ total_time }} hrs</span></div>
+<div class="item"><span class="label">Hourly App Opens</span><span class="value">{{ hourly_open }}</span></div>
+<div class="item"><span class="label">Daily Usage</span><span class="value">{{ daily_usage }} hrs</span></div>
+</div>
+
+<!-- APP USAGE -->
+<div class="section">
+<h3>📲 App Usage Breakdown (hrs/day)</h3>
+<div class="cards">
+    <div class="card">WhatsApp<strong>{{ whatsapp }}</strong></div>
+    <div class="card">Instagram<strong>{{ instagram }}</strong></div>
+    <div class="card">Snapchat<strong>{{ snapchat }}</strong></div>
+    <div class="card">Telegram<strong>{{ telegram }}</strong></div>
+    <div class="card">Facebook<strong>{{ facebook }}</strong></div>
+    <div class="card">TikTok<strong>{{ tiktok }}</strong></div>
+    <div class="card">WeChat<strong>{{ wechat }}</strong></div>
+    <div class="card">Twitter<strong>{{ twitter }}</strong></div>
+    <div class="card">LinkedIn<strong>{{ linkedin }}</strong></div>
+    <div class="card">BeReal<strong>{{ bereal }}</strong></div>
+    <div class="card">Messages<strong>{{ messages }}</strong></div>
+</div>
+</div>
+
+<div class="buttons">
+    <a href="{% url 'prediction' %}" class="btn btn-back">← New Prediction</a>
+    <a href="{% url 'UserHome' %}" class="btn btn-home">🏠 Home</a>
+</div>
+
+</div>
+</body>
+</html>
+{% endblock %}

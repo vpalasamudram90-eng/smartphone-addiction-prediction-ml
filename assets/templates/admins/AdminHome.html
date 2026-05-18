@@ -1,0 +1,28 @@
+{% extends 'admins/adminbase.html' %}
+{% block contents %}
+
+<section id="main-content" style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
+    <h1 style="margin-bottom: 20px; color: white;">Machine Learning Model for Prediction of Smartphone Addiction</h1>
+
+    <div class="content-card" style="background-color: rgba(255, 255, 255, 0.1); color: white; border-radius: 10px; padding: 20px; margin: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 90%; max-width: 600px;">
+        <h2 style="margin-top: 0;">Understanding Smartphone Addiction</h2>
+        <p>Smartphone addiction is a growing concern in today's digital age, affecting individuals' mental health, productivity, and social interactions. It is characterized by excessive use of smartphones, leading to negative impacts on daily life. Understanding the factors contributing to smartphone addiction is essential for developing effective interventions and promoting healthier usage patterns.</p>
+    </div>
+
+    <div class="content-card" style="background-color: rgba(255, 255, 255, 0.1); color: white; border-radius: 10px; padding: 20px; margin: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 90%; max-width: 600px;">
+        <h2 style="margin-top: 0;">Data Collection and Analysis</h2>
+        <p>This project begins with collecting a comprehensive dataset that includes various metrics related to smartphone usage, such as screen time, frequency of app usage, and user engagement levels. By analyzing this data using machine learning algorithms, we can identify patterns that signify potential addiction. Feature selection and engineering play a crucial role in enhancing the accuracy of our predictive model.</p>
+    </div>
+
+    <div class="content-card" style="background-color: rgba(255, 255, 255, 0.1); color: white; border-radius: 10px; padding: 20px; margin: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 90%; max-width: 600px;">
+        <h2 style="margin-top: 0;">Model Development</h2>
+        <p>We employ various machine learning techniques, including Random Forest, Logistic Regression, and Support Vector Machines, to develop our prediction model. The effectiveness of each model is evaluated using metrics such as accuracy, precision, recall, and F1-score. The Random Forest algorithm, in particular, excels in handling complex datasets and provides insights into the importance of different usage features influencing smartphone addiction.</p>
+    </div>
+
+    <div class="content-card" style="background-color: rgba(255, 255, 255, 0.1); color: white; border-radius: 10px; padding: 20px; margin: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 90%; max-width: 600px;">
+        <h2 style="margin-top: 0;">Implementation and Impact</h2>
+        <p>The final model is deployed within a user-friendly web application that allows users to input their smartphone usage data and receive real-time predictions regarding their addiction levels. By utilizing these predictions, individuals and organizations can make informed decisions to promote healthier smartphone usage habits, ultimately leading to improved well-being and productivity.</p>
+    </div>
+</section>
+
+{% endblock %}
